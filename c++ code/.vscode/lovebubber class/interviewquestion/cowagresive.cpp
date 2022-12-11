@@ -1,70 +1,61 @@
-#include <algorithm>
-#include <iostream>
+#include<iostream>
+#include <bits/stdc++.h>
+
 using namespace std;
-int ispossible(int arr[],int n,int mid,int k){
+
+int ispossible(vector<int>stalls,int mid,int k)
+{
     int cowcount=1;
-    int position=arr[0];
-    for ( int i = 0; i < n; i++)
+    int position=stalls[0];
+    for(int i=0;i<stalls.size();i++)
     {
-        if ((arr[i]-position)>=mid)
+        if(stalls[i]-position>=mid)
         {
             cowcount+=1;
-            if (cowcount==k)
+            if(cowcount==k)
             {
                 return 1;
             }
             
         }
-        position=arr[i];
-
+        position=stalls[i];
     }
     return 0;
-    
-
 }
-int agreesive(int arr[],int n,int k){
-
+int aggressiveCows(vector<int>stalls, int k)
+{
+    sort(stalls.begin(),stalls.end());
+   int s=0;
+    int ans;
     
-    sort(arr,arr+n);
-    int s=0,ans=-1;
-    int largest=arr[0];
-    for ( int i = 0; i < n; i++)
+    
+    int e=stalls.size()-1;
+    int mid=s+(e-s)/2;
+    
+    while(s<=e)
     {
-        if (arr[i]>largest)
-        {
-            largest=arr[i];
-        }
-        
-    }
-    cout<<largest;
-    int e=largest;
-    int mid=(e+s)/2;
-    while (e<=s)
-    {
-        if (ispossible(arr,n,mid,k))
+        if(ispossible(stalls,mid,k))
         {
             ans=mid;
-            
             s=mid+1;
-
         }
         else
         {
             e=mid-1;
-            
         }
-        mid=(s+e)/2;
         
     }
     return ans;
 }
 
 int main(){
-    int arr[20],n,k;
+    vector<int>stalls;
+    int n,k;
     cin>>n;
+    cin>>k;
     for (int i = 0; i < n; i++)
     {
-        cin>>arr[i];
+        cin>>stalls[i];
     }
-    cout<<agreesive(arr,n,k);
+    cout<<aggressiveCows(stalls,k);
 }
