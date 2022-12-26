@@ -70,6 +70,8 @@ int G(char ch)
                 break;
     case  '(': return 9;
                 break;
+    case  ')': return 0;
+                break;
     case  '#': return -1;
                 break;
     default: return 7;
