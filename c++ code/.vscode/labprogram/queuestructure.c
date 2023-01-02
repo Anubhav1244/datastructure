@@ -29,9 +29,9 @@ void delte(E e1[],int *front,int rear)
     }
     
     int ele=e1[*front].eid;
-    (*front)++;
     char name[200];
     strcpy(name,e1[*front].ename);
+    (*front)++;
     printf("id %d name %s is deletd form the queue",ele,name);
 }
 void display(E e1[],int front,int rear)
