@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 int max_size=4;
 
 void insert(char s[max_size][80],int *top,char name[80])
