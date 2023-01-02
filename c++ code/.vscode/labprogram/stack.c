@@ -35,10 +35,11 @@ void display(int s[],int top)
 int main()
 {
     int s[10],top=-1,ch,ele;
-    printf("1.push,2.pop,3.display,4.exit\n");
+    
     
     while (1)
     {
+        printf("1.push,2.pop,3.display,4.exit\n");
         printf("\nenter the choice");
         scanf("%d",&ch);
         switch (ch)
