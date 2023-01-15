@@ -44,6 +44,24 @@ NODE delte_front(NODE first)
     
 
 }
+void contenate_sll(NODE first)
+{
+    char name[1000]=" ";
+    NODE curr;
+    curr=first;
+    if (curr==NULL)
+    {
+        printf("Sll is empty\n");
+        return;
+    }
+    
+    while (curr!=NULL)
+    {
+        strcat(name,curr->name);
+        curr=curr->link;
+    }
+    printf("%s",name);
+}
 void display(NODE first)
 {
     if (first==NULL)
@@ -61,6 +79,7 @@ void display(NODE first)
     }
     
 }
+
 int main()
 {
     NODE first;
@@ -84,7 +103,7 @@ int main()
         case 3: display(first);
                 break;
         
-       
+       case 4: contenate_sll(first);
         default: exit(0);
         
        }//commit;
