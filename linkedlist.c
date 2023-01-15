@@ -18,6 +18,23 @@ NODE getnode()
     }
     return x;
 }
+NODE insert_rear(NODE first,int ele)
+{
+    NODE temp;
+    temp=getnode();
+    temp->info=ele;
+    temp->link=NULL;
+    NODE curr,prev;
+    curr=first;
+    while (curr!=NULL)
+    {
+        prev=curr;
+        curr=curr->link;
+    }
+    prev->link=temp;
+    return first;
+    
+}
 NODE insert_front(NODE first,int ele)
 {
     NODE temp;
@@ -40,6 +57,29 @@ NODE delte_front(NODE first)
     printf("%d is deletd from the linked list",ele);
     free(first);
     return next;
+}
+NODE delte_rear(NODE first)
+{
+    NODE curr,prev;
+    if (first==NULL)
+    {
+        printf("sll is empty");
+        return NULL;
+    }
+    curr=first;
+    prev=NULL;
+    while (curr->link!=NULL)
+    {
+        prev=curr;
+        curr=curr->link;
+    }
+    int ele=curr->info;
+    free(curr);
+    prev->link=NULL;
+    printf("%d,is delted from the linked list\n",ele);
+    return first;
+
+    
 }
 void display(NODE first)
 {
@@ -64,7 +104,7 @@ int main()
     int ch,ele;
     while (1)
     {
-       printf("1.insert_front,2.delte_front,3.display,4.exit\n");
+       printf("1.insert_front,2.delte_front,3.display,4.insert_rear,5.delte_rear,6.exit\n");
        printf("enter your choice");
        scanf("%d",&ch);
        switch (ch)
@@ -77,6 +117,13 @@ int main()
                 break;
         case 3: display(first);
                 break;
+        case 4: printf("enter the element\n");
+                scanf("%d",&ele); 
+                insert_rear(first,ele);
+                break;
+        case 5: delte_rear(first);
+                break;
+                
         default: exit(0);
         
        }
