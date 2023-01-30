@@ -8,11 +8,13 @@ struct polynomial
 typedef struct polynomial P;
 void accept(P p1[],int n)
 {
+    printf("1");
     for (int i = 0; i < n; i++)
     {
-        printf("eneter the cofficient and power of trem %d",i+1);
+        printf("eneter the cofficient and power of trem %d\n",i+1);
         scanf("%d %d",&p1[i].cf,&p1[i].pf);
     }
+    
 }
 void display(P p1[],int n)
 {
@@ -20,11 +22,11 @@ void display(P p1[],int n)
     {
         if (p1[i].cf>0)
         {
-            printf("+%dX^%d",p1[i].cf,p1[i].pf);
+            printf("+%dX^%d\n",p1[i].cf,p1[i].pf);
         }
         else
         {
-            printf("%dX^%d",p1[i].cf,p1[i].pf);
+            printf("%dX^%d\n",p1[i].cf,p1[i].pf);
         }
         
         
@@ -37,7 +39,7 @@ void addition(P p1[],P p2[],int n,int m)
     int k=0;
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; i < m; j++)
+        for (int j = 0; j < m; j++)
         {
             
             if (p1[i].pf==p2[j].pf)
@@ -75,9 +77,12 @@ void addition(P p1[],P p2[],int n,int m)
 
 int main()
 {
+    printf("2");
     P p1[10],p2[10];
+    printf("3");
     int n,m;
     scanf("%d %d",&n,&m);
+
     accept(p1,n);
     display(p1,n);
     accept(p2,m);
