@@ -128,6 +128,6 @@ int main()
     int top=-1;
     scanf("%s",infix);
     infix_to_post(infix,postfix);
-      printf("%s",postfix);
+    printf("%s",postfix);
    
 }

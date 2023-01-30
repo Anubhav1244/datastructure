@@ -58,6 +58,7 @@ NODE delte_front(NODE first)
     free(first);
     return next;
 }
+
 NODE delte_rear(NODE first)
 {
     NODE curr,prev;
@@ -81,6 +82,20 @@ NODE delte_rear(NODE first)
 
     
 }
+void conactenate_sll(NODE first,NODE second)
+{
+    NODE curr,prev;
+    curr=first;
+    prev=NULL;
+    while (curr!=NULL)
+    {
+        prev=curr;
+        curr=curr->link;
+    }
+    prev->link=second;
+    return first;
+
+}
 void display(NODE first)
 {
     if (first==NULL)
@@ -96,9 +111,10 @@ void display(NODE first)
     }
     
 }
+
 int main()
 {
-    NODE first;
+    NODE first,second;
     first=NULL;
     
     int ch,ele;
@@ -112,6 +128,7 @@ int main()
        case 1:  printf("enter the element\n");
                 scanf("%d",&ele);
                 first=insert_front(first,ele);
+                
                 break;
         case 2: first=delte_front(first);
                 break;
@@ -123,7 +140,7 @@ int main()
                 break;
         case 5: delte_rear(first);
                 break;
-                
+       
         default: exit(0);
         
        }//commit;

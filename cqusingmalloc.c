@@ -75,6 +75,7 @@ void display(int *q,int front,int count)
    }
 
 }
+
 int main()
 {
     int *q,front=0,rear=max-1,count=0,ele,ch;

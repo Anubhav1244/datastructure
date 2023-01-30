@@ -26,21 +26,17 @@ void pop(int *s,int *top)
     if(*top==-1)
     {
         printf("underflow condition");
+        return;
     }
-    else{
-        if (*top==-1)
-        {
-            printf("underflow condition");
-        }
-        else
-        {
+    
         int ele= s[*top];
         (*top)--;
         if(*top==-1)return;
-        s=(int*)realloc(s,sizeof(int)*(*top)++);
-        }
+        printf("number is delted %d",ele);
+        s=(int*)realloc(s,sizeof(int)*(*top)+1);
+
         
-    }
+
     
 }
 void display(int *s,int top)
